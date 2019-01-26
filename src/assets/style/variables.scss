@@ -1,4 +1,13 @@
 $default-padding: 15px;
 $large-padding: $default-padding * 2;
+$user-thumbnail-size: 50px;
 
-
+.icon-default-border {
+  width: $user-thumbnail-size;
+  height: $user-thumbnail-size;
+  border: 3px solid #fff;
+}
+.icon-header-default {
+  font-size: 30px;
+  margin: auto;
+}

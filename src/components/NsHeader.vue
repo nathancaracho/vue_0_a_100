@@ -14,17 +14,7 @@
           <span>Share your best treasure</span>
         </div>
       </div>
-      <div class="user">
-        <div class="user-information">
-          <div class="user-information-name">some</div>
-          <hr>
-          <div class="user-information-email">some@hotmail.com</div>
-        </div>
-        <div class="user-thumbnail">
-          <!-- cuidado transforma em svg no final -->
-          <font-awesome-icon class="user-thumbnail-icon icon-header-default" icon="user"/>
-        </div>
-      </div>
+      <ns-user></ns-user>
     </div>
     <div class="center">
       <div class="search">
@@ -32,16 +22,17 @@
         <font-awesome-icon class="search-icon" icon="search"/>
       </div>
       <!--O titulo é do artigo, mas o artigo é outra página então como será feito? -->
+      <!-- não tem algo errado aqui??? -->
       <div class="title" :class="title?'title--show':''">
         <h1>{{title}}</h1>
       </div>
     </div>
     <div class="bottom">
+      <!-- como criar um brandcramb? -->
       <div class="menu">
         <nav>
           <span class="nav-item">author</span>
           <router-link to="/category" class="nav-item nav-item--selected">category</router-link>
-
           <span class="nav-item">lenguage</span>
         </nav>
       </div>
@@ -49,13 +40,22 @@
   </header>
 </template>
 <script>
+import NsUser from "@/components/NsUser";
 export default {
   name: "NsHeader",
+  components: {
+    NsUser
+  },
   props: {
     background: {
       type: String,
       required: false,
       default: "../assets/home.jpg"
+    },
+    showMenu: {
+      type: Boolean,
+      required: false,
+      default: true
     }
   },
   data() {
@@ -78,18 +78,9 @@ export default {
 // nosso ajuste será criar novos componentes ;)
 @import "../assets/style/main.scss";
 
-$user-thumbnail-size: 50px;
 $header-height: 300px;
 $header-height-background-image: 400px;
-.icon-default-border {
-  width: $user-thumbnail-size;
-  height: $user-thumbnail-size;
-  border: 3px solid #fff;
-}
-.icon-header-default {
-  font-size: 30px;
-  margin: auto;
-}
+
 header {
   position: relative;
   display: flex;
@@ -134,36 +125,6 @@ header {
       }
       hr {
         background-color: #fff;
-      }
-    }
-    .user {
-      display: flex;
-      max-height: $user-thumbnail-size;
-      .user-information {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: $user-thumbnail-size;
-        margin-right: 5px;
-        & > * {
-          text-align: right;
-        }
-        .user-information-name {
-          font-size: 20px;
-          font-weight: bolder;
-        }
-        .user-information-email {
-          margin-bottom: auto;
-        }
-        & > hr {
-          max-height: 1px;
-          margin: auto 0;
-          background-color: #fff;
-        }
-      }
-      .user-thumbnail {
-        display: flex;
-        @extend .clickable, .icon-default-border;
       }
     }
   }

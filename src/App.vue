@@ -1,6 +1,6 @@
 <template>
   <div class="page-wrapper">
-    <NsHeader/>
+    <ns-header/>
     <router-view class="content"/>
   </div>
 </template>

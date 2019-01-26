@@ -1,7 +1,7 @@
 <template>
   <div class="category-content">
     <div class="category-content-item" v-for="(card, index) in cardList" :key="index">
-      <NsCard :color="card.color" :title="card.title" :image="card.image"/>
+      <ns-card :color="card.color" :title="card.title" :image="card.image"/>
     </div>
   </div>
 </template>
