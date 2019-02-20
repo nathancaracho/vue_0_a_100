@@ -1,8 +1,11 @@
-
 .clickable {
   cursor: pointer;
 }
 
 .no-user-select {
   user-select: none;
+}
+
+body {
+  margin: 0 !important;
 }

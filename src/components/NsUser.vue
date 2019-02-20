@@ -5,15 +5,33 @@
       <hr>
       <div class="user-information-email">some@hotmail.com</div>
     </div>
-    <div class="user-thumbnail">
+    <div class="user-thumbnail" @click="openModal">
       <!-- cuidado transforma em svg no final -->
       <font-awesome-icon class="user-thumbnail-icon icon-header-default" icon="user"/>
     </div>
+    <ns-modal-login v-if="isOpenModal" @close="closeModal"/>
   </div>
 </template>
 <script>
+import NsModalLogin from "@/components/NsModalLogin";
 export default {
-  name: "NsUser"
+  name: "NsUser",
+  components: {
+    NsModalLogin
+  },
+  data() {
+    return {
+      isOpenModal: false
+    };
+  },
+  methods: {
+    openModal: function() {
+      this.isOpenModal = true;
+    },
+    closeModal: function() {
+      this.isOpenModal = false;
+    }
+  }
 };
 </script>
 

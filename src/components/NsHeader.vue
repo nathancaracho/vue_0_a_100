@@ -1,8 +1,5 @@
 <template>
   <header>
-    <div class="background">
-      <div class="background-img" :src="background"></div>
-    </div>
     <div class="top">
       <div class="brand">
         <div class="brand-logo">
@@ -23,7 +20,7 @@
       </div>
       <!--O titulo é do artigo, mas o artigo é outra página então como será feito? -->
       <!-- não tem algo errado aqui??? -->
-      <div class="title" :class="title?'title--show':''">
+      <div class="title" v-if="title">
         <h1>{{title}}</h1>
       </div>
     </div>
@@ -79,7 +76,6 @@ export default {
 @import "../assets/style/main.scss";
 
 $header-height: 300px;
-$header-height-background-image: 400px;
 
 header {
   position: relative;
@@ -177,35 +173,6 @@ header {
           }
         }
       }
-    }
-  }
-  .background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: $header-height-background-image;
-    width: 100%;
-    background-color: #000;
-    z-index: 0;
-
-    &-img {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      opacity: 0.8;
-      background-image: url("../assets/home.jpg");
-      background-position: 130%;
-    }
-    &:after {
-      content: "";
-      position: absolute;
-      display: block;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-      background-image: linear-gradient(to right, #000, #00000011);
     }
   }
 }

@@ -1,10 +1,10 @@
 <template>
-  <div class="card" :style="`background-color:${color}`">
+  <router-link :to="route" class="card" :style="`background-color:${color}`">
     <img class="card-image" :src="image">
     <div class="card-title">
       <span class="card-title-text">{{title}}</span>
     </div>
-  </div>
+  </router-link>
 </template>
 <script>
 export default {
@@ -21,22 +21,27 @@ export default {
     image: {
       type: String,
       required: true
+    },
+    route: {
+      type: String,
+      required: true
     }
   }
 };
 </script>
 <style  lang="scss">
 @import "../assets/style/main.scss";
-$card-size: 150px;
+$card-size: 200px;
 .card {
   position: relative;
+  display: block;
   display: flex;
   flex-direction: column;
   width: $card-size;
   height: $card-size;
+  text-decoration: none;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
   color: #fff;
-  @extend .clickable;
   & > .card-image {
     margin: auto;
     width: 30%;
